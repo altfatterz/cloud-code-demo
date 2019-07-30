@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-code-demo-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cloud-code-demo
+  template:
+    metadata:
+      labels:
+        app: cloud-code-demo
+    spec:
+      containers:
+      - name: cloud-code-demo
+        image: altfatterz/cloud-code-demo
+        ports:
+        - containerPort: 8080
